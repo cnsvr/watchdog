@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/furkancansever/Workspace/watchdog-project/src/watchdog.cpp
+unistd.h
+/Users/furkancansever/Workspace/watchdog-project/src/unistd.h
+cstdlib
+-
+iostream
+-
+stdio.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+sstream
+-
+
