@@ -111,8 +111,7 @@ int main(int argc, char *argv[]){
 
     sleep(3);
 
-
-    if (child > 0 ){
+    if (child > 0){
         while(1) {
             wpid = wait(NULL);
             printf("PID %d terminated\n", wpid);
