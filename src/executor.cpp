@@ -69,9 +69,9 @@ int main(int argc, char *argv[]) {
         read(unnamedPipe, temp, 30);
         stringstream splitmsg(temp);
         splitmsg >> p_index >> p_pid;
-        cout << p_index << p_pid << endl;
         id = stoi(p_index.substr(1));
         pid = stoi(p_pid);
+        printf("Executor read from pipe P%d %d\n",id,pid);
         pidList[id] = pid;
     }
 
@@ -107,6 +107,7 @@ int main(int argc, char *argv[]) {
                         splitmsg >> p_index >> p_pid;
                         id = stoi(p_index.substr(1));
                         pid = stoi(p_pid);
+                        printf("Executor read from pipe P%d %d\n",id,pid);
                         pidList[id] = pid;
                     }
                 }
@@ -120,8 +121,9 @@ int main(int argc, char *argv[]) {
                     splitmsg >> p_index >> p_pid;
                     id = stoi(p_index.substr(1));
                     pid = stoi(p_pid);
+                    printf("Executor read from pipe P%d %d\n",id,pid);
                     pidList[id] = pid;
-				                }
+                }
             }
             /*
             * If the instruction is wait:
@@ -139,6 +141,7 @@ int main(int argc, char *argv[]) {
     */
     if (finished) {
         for (int i=0; i<=processNum; i++){
+            printf("send signal for p %d\n", pidList[i]);
             kill(pidList[i] , SIGTERM);
             nanosleep(&delta, &delta);
         }
