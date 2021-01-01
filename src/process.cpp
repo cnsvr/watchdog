@@ -6,9 +6,16 @@
 
 using namespace std;
 
-int pid;
-string processOut;
-ofstream pOut;
+int pid;               /// process id
+string processOut;     /// path of process output file
+ofstream pOut;         /// output stream for output file
+
+
+/**
+ * Kill process if SIGTERM signal comes, otherwise write operation to output file
+ *
+ * @param signum value of signal
+ */
 
 void signalHandler( int signum ) {
     pOut.open(processOut,pOut.out | pOut.app);
@@ -22,10 +29,19 @@ void signalHandler( int signum ) {
     }
 }
 
+/**
+ * Open output file and write operation to file.
+ * Call signalHandler method if any signal comes, otherwise sleeps.
+ *
+ * @param argc number of arguments
+ * @param argv array contains arguments
+ * @return 0 when it is terminated.
+ */
+
 int main (int argc, char *argv[]) {
 
-    pid = stoi(argv[1]);
-    processOut = argv[2];
+    pid = stoi(argv[1]);        /// id of process
+    processOut = argv[2];           /// path of output file
 
     pOut.open(processOut,pOut.out | pOut.app);
     pOut << "P" + to_string(pid) + " is waiting for signal\n";

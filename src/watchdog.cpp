@@ -1,11 +1,11 @@
-/*!
- * \author Furkan Cansever.
+/**
+ * @mainpage
+ * @author Furkan Cansever
  *
- * Developed for CmpE322 Watchdog Project.
  *
  * \brief The main objective of this project is to
- * implement a watchdog system that manages and controls
- * processes in an efficient and convenience way.
+ *        implement a watchdog system that manages and controls
+ *        processes in an efficient and convenience way.
  *
  * This programs follows the below steps.
  * It takes three arguments that are process number(N), path of procees and watchog output file.
