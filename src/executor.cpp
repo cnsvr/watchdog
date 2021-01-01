@@ -13,8 +13,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <map>
-#include <stdio.h>
-
 
 using namespace std;
 map<string,int> sigMap;
@@ -40,7 +38,7 @@ int main(int argc, char *argv[]) {
     /*
     * Get command line arguments. Expects 2 inputs, number of processes and a path to the instructions.txt file.
     */
-    processNum = stoi(argv[1]);
+    processNum = stoi(argv[1]) ;
     inputPath = argv[2];
     pid_t pidList[processNum+1]; // Keep PID of watchdog at 0, PID of P1 at 1, ...
 
@@ -56,7 +54,6 @@ int main(int argc, char *argv[]) {
     char temp[30];
     unnamedPipe = open(myfifo,O_RDONLY);
 
-
     /*
     * Read PIDs that are written by the watchdog.
     * Format: "P# <pid>"
@@ -71,11 +68,8 @@ int main(int argc, char *argv[]) {
         splitmsg >> p_index >> p_pid;
         id = stoi(p_index.substr(1));
         pid = stoi(p_pid);
-        printf("Executor read from pipe P%d %d\n",id,pid);
         pidList[id] = pid;
     }
-
-    // printf("HHERE");
 
     /*
     * Read instructions from the input file.
@@ -107,7 +101,6 @@ int main(int argc, char *argv[]) {
                         splitmsg >> p_index >> p_pid;
                         id = stoi(p_index.substr(1));
                         pid = stoi(p_pid);
-                        printf("Executor read from pipe P%d %d\n",id,pid);
                         pidList[id] = pid;
                     }
                 }
@@ -121,7 +114,6 @@ int main(int argc, char *argv[]) {
                     splitmsg >> p_index >> p_pid;
                     id = stoi(p_index.substr(1));
                     pid = stoi(p_pid);
-                    printf("Executor read from pipe P%d %d\n",id,pid);
                     pidList[id] = pid;
                 }
             }
@@ -141,7 +133,6 @@ int main(int argc, char *argv[]) {
     */
     if (finished) {
         for (int i=0; i<=processNum; i++){
-            printf("send signal for p %d\n", pidList[i]);
             kill(pidList[i] , SIGTERM);
             nanosleep(&delta, &delta);
         }
