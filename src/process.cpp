@@ -44,7 +44,7 @@ int main (int argc, char *argv[]) {
     processOut = argv[2];           /// path of output file
 
     pOut.open(processOut,pOut.out | pOut.app);
-    pOut << "P" + to_string(pid) + " is waiting for signal\n";
+    pOut << "P" + to_string(pid) + " is waiting for a signal\n";
     pOut.close();
     signal(SIGHUP, signalHandler);
     signal(SIGINT, signalHandler);
