@@ -18,11 +18,11 @@ You are expected to have three C/C++ programs;process,watchdog, andexecutorwith 
 
 * 2.1 executor.cpp
 
-  - 1. File Properties:
-        * The  name  of  the  file  isexecutor.cpp.   (This  file  is  already  provided  to  you.   Do  not modify.)
-  - 2. Operations:
-        * Program reads instructions frominstructions.txt.
-        * Creates a named pipe to be shared withwatchdogprogram.
-        * Reads “#PID” tuples from the read end of the pipe (P1 3564, P2 3565 etc.).
-        * Detects whether it is asignalorwaitcommand.
-        * Sends the intended signal to the given process.•When  instructions  are  completed,  first  it  kills  the  watchdog  process,  then  all  of  theother running processes by sending the SIGTERM signal.
+  - File Properties:
+    * The  name  of  the  file  isexecutor.cpp.   (This  file  is  already  provided  to  you.   Do  not modify.)
+  - Operations:
+    * Program reads instructions frominstructions.txt.
+    * Creates a named pipe to be shared withwatchdogprogram.
+    * Reads “#PID” tuples from the read end of the pipe (P1 3564, P2 3565 etc.).
+    * Detects whether it is asignalorwaitcommand.
+    * Sends the intended signal to the given process.•When  instructions  are  completed,  first  it  kills  the  watchdog  process,  then  all  of  theother running processes by sending the SIGTERM signal.
