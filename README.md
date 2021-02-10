@@ -1,6 +1,6 @@
 # WatchDog
 
-## 1 Introduction 
+## Introduction 
 
 In your professional lives as computer engineers,  you will often develop grand projects com-posed  of  several  processes  interacting  to  achieve  a  complex  task  in  a  collaborative  manner.However, some of these processes might fail in production (i.e.  when deployed in the real-lifeenvironment). Therefore,  such  grand  software  projects  typically  also  embody  an  additional watchdog process  that  keeps  track  of  the  ”well  being”  of  all  other  processes.
   
@@ -10,13 +10,13 @@ In this project, you are expected to create a simple program inC/C+ + that imple
 
 The  project  will  be  evaluated  automatically  in  the  Linux  environment  (Ubuntu  Version20.04.1) with a gcc/g++ compiler (Version 9.3.0).  Please follow all the requirements specifiedbelow.  Your submissions will be compiled and tested via automatic scripts.  Therefore,  it iscrucial that you follow the protocol (i.e.  the rules and the specifications) defined in the projectdocument.  Failure in the compilation and/or execution is your responsibility.  You should usethe file names, parameters, etc.  as mentioned in the project specifications.
 
-## 2 Project Description
+## Project Description
 
 The project is to be designed in a flexible manner.  That means,  you will haveNprocessesand a watchdog,  but thoseNprocesses will be created by running the same executable file,process.c/process.cpp.  During the evaluation, we may takeNto be 3 or maybe even 120.  So,do not develop your code depending on a specific value ofN.
 
 You are expected to have three C/C++ programs;process,watchdog, andexecutorwith theproperties specified below.  Note that,executorprogram is provided to you, and you should notalter anything on the original program.
 
-* ## 2.1 executor.cpp
+* ##  executor.cpp
 
   - File Properties:
     * The  name  of  the  file  isexecutor.cpp.   (This  file  is  already  provided  to  you.   Do  not modify.)
@@ -25,4 +25,5 @@ You are expected to have three C/C++ programs;process,watchdog, andexecutorwith 
     * Creates a named pipe to be shared withwatchdogprogram.
     * Reads “#PID” tuples from the read end of the pipe (P1 3564, P2 3565 etc.).
     * Detects whether it is asignalorwaitcommand.
-    * Sends the intended signal to the given process.•When  instructions  are  completed,  first  it  kills  the  watchdog  process,  then  all  of  theother running processes by sending the SIGTERM signal.
+    * Sends the intended signal to the given process.
+    * When  instructions  are  completed,  first  it  kills  the  watchdog  process,  then  all  of  theother running processes by sending the SIGTERM signal.
