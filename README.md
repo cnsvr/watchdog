@@ -103,18 +103,17 @@ gcc watchdog.c -o watchdog
     * num of process: an integer value to specify the number of processes in the system
     * instruction path: absolute path of the instructions file
     
- * ## Output
+* ## Output
  
   - All operations performed by the process file should be logged to the file specified by the command line argument process output path.
     * When a process is ready to execute, it prints: PID is waiting for a signal
-    * When a process receives a signal, it prints: P<ID> received signal <VALUE>
-    * When a process receives SIGTERM signal, it prints: P<ID> is received signal 15, terminating gracefully
+    * When a process receives a signal, it prints: P ID received signal VALUE
+    * When a process receives SIGTERM signal, it prints: P ID  is received signal 15, terminating gracefully
     
   - All operations performed by the watchdog should be logged to the file specified by the command line argument watchdog output path.
-  * When watchdog creates a process, it prints: P<ID> is started and it has a pid of <PID VALUE>.
-  * When the head process is killed, watchdog prints: P1 is killed, all processes must be killed.
-  * When restarting all processes, watchdog prints: Restarting all processes.
-  * When a process (except P1) is killed, watchdog prints: P<ID> is killed. And when a
-process is being restarted/recreated, watchdog prints: Restarting P<ID>.
-  * When the watchdog terminates normally (i.e., all the instructions are completed), it prints: Watchdog is terminating gracefully
+    * When watchdog creates a process, it prints: P ID is started and it has a pid of PID VALUE.
+    * When the head process is killed, watchdog prints: P1 is killed, all processes must be killed.
+    * When restarting all processes, watchdog prints: Restarting all processes.
+    * When a process (except P1) is killed, watchdog prints: P ID is killed. And when a process is being restarted/recreated, watchdog prints: Restarting P ID.
+    * When the watchdog terminates normally (i.e., all the instructions are completed), it prints: Watchdog is terminating gracefully
  
