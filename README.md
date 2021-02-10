@@ -45,6 +45,7 @@ You are expected to have three C/C++ programs;process,watchdog, andexecutorwith 
     * Specific to SIGTERM signal, the process should terminate after printing the required message.
     * The instructions file has the signals and wait commands listed line by line. A sample instruction file is shown in Table 2. For instance, if the instruction is ”SIGHUP P3”, P3 receives a SIGHUP signal. If the instruction is ”wait 1”, all the processes should sleep for 1 second.
 
+
 | Signal      | Value | Description |
 | :-----------: | :-----------: | --------- |
 | SIGHUP | 1 | Hangup (POSIX) <br/> Report that the user’s terminal is disconnected.|
